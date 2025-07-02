@@ -1,0 +1,115 @@
+<!-- Se especifica el tipo de documento y el idioma -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Se define la codificación de caracteres -->
+    <meta charset="UTF-8">
+    <!-- Configuración para visualización en dispositivos móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título que aparece en la pestaña del navegador -->
+    <title>Simulador: Análisis de Fuerza Neta entre Cargas</title>
+    <!-- Enlace a la hoja de estilos externa -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Título principal de la página -->
+    <h1>Simulador: Análisis de Fuerza Neta entre Cargas</h1>
+
+    <!-- Contenedor principal que agrupa todo el contenido -->
+    <div class="container">
+
+        <!-- Panel lateral izquierdo con el formulario de entrada -->
+        <aside class="panel-izq">
+            <form id="formulario">
+
+                <!-- Sección para ingresar las longitudes de los lados del triángulo -->
+                <fieldset>
+                    <legend>Lados del triángulo (m)</legend>
+                    <!-- Entrada para el lado AB entre q₁ y q₂ -->
+                    <label>AB (entre q₁ y q₂): 
+                        <input type="number" id="ladoAB" min="0.01" step="0.01" class="input-lado" required>
+                    </label>
+                    <!-- Entrada para el lado BC entre q₂ y q₃ -->
+                    <label>BC (entre q₂ y q₃): 
+                        <input type="number" id="ladoBC" min="0.01" step="0.01" class="input-lado" required>
+                    </label>
+                    <!-- Entrada para el lado CA entre q₃ y q₁ -->
+                    <label>CA (entre q₃ y q₁): 
+                        <input type="number" id="ladoCA" min="0.01" step="0.01" class="input-lado" required>
+                    </label>
+                </fieldset>
+
+                <!-- Sección para ingresar las magnitudes de las cargas -->
+                <fieldset>
+                    <legend>Cargas eléctricas</legend>
+
+                    <!-- Entrada para la carga q₁ y su prefijo -->
+                    <label>q₁:
+                        <input type="number" id="q1" step="0.01">
+                        <select id="q1-prefijo">
+                            <option value="-3">mC (10⁻³)</option>
+                            <option value="-6" selected>μC (10⁻⁶)</option>
+                            <option value="-9">nC (10⁻⁹)</option>
+                        </select>
+                    </label>
+
+                    <!-- Entrada para la carga q₂ y su prefijo -->
+                    <label>q₂:
+                        <input type="number" id="q2" step="0.01">
+                        <select id="q2-prefijo">
+                            <option value="-3">mC (10⁻³)</option>
+                            <option value="-6" selected>μC (10⁻⁶)</option>
+                            <option value="-9">nC (10⁻⁹)</option>
+                        </select>
+                    </label>
+
+                    <!-- Entrada para la carga q₃ y su prefijo -->
+                    <label>q₃:
+                        <input type="number" id="q3" step="0.01">
+                        <select id="q3-prefijo">
+                            <option value="-3">mC (10⁻³)</option>
+                            <option value="-6" selected>μC (10⁻⁶)</option>
+                            <option value="-9">nC (10⁻⁹)</option>
+                        </select>
+                    </label>
+
+                    <!-- Selección de la carga sobre la cual se desea analizar las fuerzas -->
+                    <label>Selecciona la carga sobre la cual analizar las fuerzas:
+                        <select id="carga-analizada">
+                            <option value="1">q₁ (analizar fuerzas sobre q₁)</option>
+                            <option value="2">q₂ (analizar fuerzas sobre q₂)</option>
+                            <option value="3">q₃ (analizar fuerzas sobre q₃)</option>
+                        </select>
+                    </label>
+                </fieldset>
+
+                <!-- Botón para ejecutar los cálculos -->
+                <button type="button" id="btnCalcular">Calcular</button>
+
+                <!-- Botón para reiniciar todos los valores -->
+                <button type="button" id="btnReiniciar">Reiniciar</button>
+            </form>
+        </aside>
+
+        <!-- Panel derecho con el gráfico y los resultados -->
+        <main class="panel-der">
+
+            <!-- Sección para mostrar el gráfico del triángulo -->
+            <section id="grafico">
+                <!-- Lienzo donde se dibuja el triángulo y vectores -->
+                <canvas id="canvas-triangulo" width="600" height="500"></canvas>
+            </section>
+
+            <!-- Sección para mostrar los resultados -->
+            <section id="resultados">
+                <h2>Resultados</h2>
+                <!-- Contenedor donde se imprime el desarrollo del cálculo -->
+                <div id="desarrollo"></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Enlace al archivo JavaScript que contiene la lógica del simulador -->
+    <script src="scripts.js"></script>
+</body>
+</html>

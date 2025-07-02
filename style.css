@@ -1,0 +1,312 @@
+/* Estilo general del cuerpo de la página */
+body {
+    font-family: Arial, sans-serif; /* Fuente principal */
+    margin: 0; /* Elimina márgenes predeterminados */
+    background: #f8f9fa; /* Color de fondo claro */
+    color: #222; /* Color del texto general */
+}
+
+/* Estilo para el título principal */
+h1 {
+    text-align: left;
+    margin: 30px 0 10px 40px; /* Márgenes: arriba, derecha, abajo, izquierda */
+    font-size: 2rem;
+    color: #1976d2; /* Azul intenso */
+}
+
+/* Contenedor principal, usa flexbox para disposición horizontal */
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 32px; /* Espacio entre paneles */
+    margin: 0 40px 40px 40px;
+}
+
+/* Panel izquierdo (formulario) */
+.panel-izq {
+    width: 340px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 24px 20px 20px 20px;
+}
+
+/* Panel derecho (gráfico + resultados) */
+.panel-der {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Estilo general para etiquetas de formulario */
+form label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Estilo para inputs numéricos y listas desplegables */
+input[type="number"], select {
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 6px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+/* Estilo cuando el input está enfocado */
+input[type="number"]:focus, select:focus {
+    outline: none;
+    border-color: #1976d2;
+    box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+}
+
+/* Separación para botones de tipo radio */
+input[type="radio"] {
+    margin-right: 6px;
+}
+
+/* Contenedor de campos agrupados */
+fieldset {
+    margin-bottom: 18px;
+    border: 1px solid #e0e0e0;
+    border-radius: 7px;
+    padding: 12px 14px 10px 14px;
+    background: #fafbfc;
+}
+
+/* Título del fieldset */
+legend {
+    font-weight: bold;
+    font-size: 1.05rem;
+    color: #1976d2;
+    padding: 0 8px;
+}
+
+/* Estilo base de botones */
+button {
+    width: 120px;
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+/* Botón de calcular */
+#btnCalcular {
+    background: #1976d2;
+    color: #fff;
+}
+
+/* Efecto hover del botón Calcular */
+#btnCalcular:hover {
+    background: #1565c0;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(25, 118, 210, 0.3);
+}
+
+/* Botón de reiniciar */
+#btnReiniciar {
+    background: #757575;
+    color: #fff;
+}
+
+/* Efecto hover del botón Reiniciar */
+#btnReiniciar:hover {
+    background: #616161;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(117, 117, 117, 0.3);
+}
+
+/* Contenedor del gráfico */
+#grafico {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+}
+
+/* Estilo del canvas donde se dibuja el triángulo */
+#canvas-triangulo {
+    background: #f8f9fa;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    display: block;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    max-width: 100%;
+    max-height: 100%;
+    width: 600px;
+    height: 500px;
+}
+
+/* Sección de resultados */
+#resultados {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 20px;
+}
+
+/* Título de resultados */
+#resultados h2 {
+    color: #1976d2;
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 1.5rem;
+}
+
+/* Contenedor donde se muestran los cálculos */
+#desarrollo {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin-top: 10px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Bloque individual de resultado */
+.resultado-bloque {
+    background: #f8fafd;
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-left: 4px solid #1976d2;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Efecto al pasar el mouse por un bloque de resultado */
+.resultado-bloque:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+/* Título dentro del bloque de resultado */
+.resultado-titulo {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #1976d2;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Línea con fórmula dentro del resultado */
+.resultado-formula {
+    font-size: 1.05em;
+    margin-bottom: 6px;
+    padding: 4px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Elimina la línea si es la última fórmula */
+.resultado-formula:last-child {
+    border-bottom: none;
+}
+
+/* Resalta una parte específica de la fórmula */
+.resultado-formula span {
+    font-weight: bold;
+    color: #d32f2f;
+    background: #ffebee;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 4px;
+}
+
+/* Estilo especial para el bloque final de resultado */
+.resultado-final {
+    border: 2px solid #1976d2;
+    background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+    border-left: 6px solid #1976d2;
+}
+
+.resultado-final .resultado-titulo {
+    color: #1565c0;
+    font-size: 1.3em;
+}
+
+/* Estilo de mensajes de error */
+.error {
+    background: #ffebee;
+    border: 2px solid #f44336;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    color: #c62828;
+    font-weight: bold;
+    font-size: 1.1em;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(244, 67, 54, 0.2);
+}
+
+/* Estilos para tipo de fuerza repulsiva */
+.tipo-repulsiva {
+    color: #d32f2f !important;
+    background: #ffebee !important;
+    border: 1px solid #f44336;
+    font-weight: bold;
+    padding: 3px 8px !important;
+    border-radius: 4px;
+    margin-left: 4px;
+}
+
+/* Estilos para tipo de fuerza atractiva */
+.tipo-atractiva {
+    color: #1976d2 !important;
+    background: #e3f2fd !important;
+    border: 1px solid #2196f3;
+    font-weight: bold;
+    padding: 3px 8px !important;
+    border-radius: 4px;
+    margin-left: 4px;
+}
+
+/* Títulos dentro de bloques de resultados */
+.resultado-bloque h3 {
+    margin: 0 0 12px 0;
+    color: #1976d2;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+/* Párrafos dentro de bloques de resultados */
+.resultado-bloque p {
+    margin: 8px 0;
+    line-height: 1.4;
+}
+
+/* Negritas resaltadas dentro de fórmulas */
+.resultado-bloque .resultado-formula b {
+    color: #1565c0;
+}
+
+/* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Cambia de horizontal a vertical */
+        margin: 0 20px 20px 20px;
+    }
+    .panel-izq {
+        width: auto; /* El ancho se adapta al contenedor */
+    }
+    #canvas-triangulo {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+    }
+}
